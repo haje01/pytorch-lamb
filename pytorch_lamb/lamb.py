@@ -18,7 +18,7 @@ def log_lamb_rs(optimizer: Optimizer, event_writer: SummaryWriter, token_count: 
                 results[i].append(state[i])
 
     for k, v in results.items():
-        event_writer.add_histogram(f'lamb/{k}', torch.tensor(v), token_count)
+        event_writer.add_histogram('lamb/{}'.format(k), torch.tensor(v), token_count)
 
 class Lamb(Optimizer):
     r"""Implements Lamb algorithm.
