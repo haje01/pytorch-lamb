@@ -47,7 +47,7 @@ def train(args, model, device, train_loader, optimizer, epoch, event_writer):
             log_lamb_rs(optimizer, event_writer, step)
             event_writer.add_scalar('loss', loss.item(), step)
             tqdm_bar.set_description(
-                f'Train epoch {epoch} Loss: {loss.item():.6f}')
+                'Train epoch {} Loss: {:.6f}'.format(epoch, loss.item()))
 
 def test(args, model, device, test_loader, event_writer:SummaryWriter, epoch):
     model.eval()
